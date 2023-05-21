@@ -2,13 +2,32 @@
 #include <list>
 using namespace std;
 int main() {
-    list<int> miLista = {-50, 20, 30, 40, 50, 70, 123};
+    list<int> numeros;
 
-    int primerElemento = miLista.front();
-    int ultimoElemento = miLista.back();
+    int numero;
+    char continuar;
 
-    cout << "Primer elemento: " << primerElemento << endl;
-    cout << "Último elemento: " << ultimoElemento << endl;
+    do {
+        cout << "Ingrese un número: ";
+        cin >> numero;
+
+        numeros.push_back(numero);
+
+        cout << "¿Desea ingresar otro número? (s/n): ";
+        cin >> continuar;
+    } while (continuar == 's' || continuar == 'S');
+
+    int suma = 0;
+    for (const auto& num : numeros) {
+        suma += num;
+    }
+    cout << "Elementos de la lista: ";
+    for (const auto& numero : numeros) {
+    cout << numero << " ";
+    }
+    cout << endl;
+
+    cout << "La suma de los números ingresados es: " << suma << endl;
 
     return 0;
 }
